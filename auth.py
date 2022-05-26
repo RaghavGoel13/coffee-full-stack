@@ -132,7 +132,7 @@ def verify_decode_jwt(token):
                 token,
                 rsa_key,
                 algorithms=ALGORITHMS,
-                audience='coffe',
+                audience=API_AUDIENCE,
                 issuer='https://' + AUTH0_DOMAIN + '/'
             )
 
@@ -157,7 +157,7 @@ def verify_decode_jwt(token):
     raise AuthError({
         'code': 'invalid_header',
         'description': 'Error! Unable to find the appropriate key.'
-    }, 400)
+    }, 403)
 
 
 '''
